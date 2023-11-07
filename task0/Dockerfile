@@ -8,4 +8,4 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 # Set the default command to echo "Hello, World!"
-CMD ["echo", "Hello, World!"]
+CMD echo "Hello, World!"

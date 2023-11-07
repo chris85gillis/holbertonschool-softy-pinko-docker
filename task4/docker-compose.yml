@@ -1,18 +1,19 @@
-version: '3 or 4 (0 index?)'
 services:
-  back-end:
+
+  api:
+    image: ubuntu:latest
+    ports:
+      - "5252:5252"
     build:
       context: ./back-end
       dockerfile: Dockerfile
-    image: softy-pinko-back-end:task4
+
+  nginx:
+    image: nginx:latest
     ports:
-      - "5252:5252"
-  front-end:
+      - "9000:9000"
     build:
       context: ./front-end
       dockerfile: Dockerfile
-    image: softy-pinko-front-end:task4
-    ports:
-      - "9000:9000"
     depends_on:
-      - back-end
+      - api
